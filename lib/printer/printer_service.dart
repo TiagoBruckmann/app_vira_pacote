@@ -14,9 +14,13 @@ class PrinterService {
       print("androidInfo => $androidInfo");
 
       String acquirer = "";
-      if ( androidInfo.display.toLowerCase().contains(AcquirerEnum.vero.acquirer) ) {
-        acquirer = AcquirerEnum.vero.acquirer;
+      for ( final item in AcquirerEnum.values ) {
+        if ( androidInfo.display.toLowerCase().contains(item.acquirer) ) {
+          acquirer = item.acquirer;
+          break;
+        }
       }
+      
       print("acquirer => $acquirer");
 
       if ( acquirer.trim().isEmpty ) {

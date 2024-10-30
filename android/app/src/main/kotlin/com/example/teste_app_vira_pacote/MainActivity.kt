@@ -1,6 +1,5 @@
 package com.example.teste_app_vira_pacote
 
-// import io.flutter.embedding.engine.plugins.FlutterPlugin
 import android.os.Bundle
 import android.util.Log
 import com.example.teste_app_vira_pacote.vero.VeroPayment
@@ -11,10 +10,9 @@ import java.lang.String
 import kotlin.Int
 import kotlin.let
 
-class MainActivity: /*MethodChannel.MethodCallHandler,*/ FlutterActivity() {
+class MainActivity: FlutterActivity() {
 
     private val CHANNEL = "acquiring_sdk"
-    // private lateinit var channel : MethodChannel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,36 +47,5 @@ class MainActivity: /*MethodChannel.MethodCallHandler,*/ FlutterActivity() {
             }
         }
     }
-
-    /*
-    override fun onAttachedToEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        Log.i("onAttachedToEngine => ", "")
-        channel = MethodChannel(binding.binaryMessenger, "acquiring_sdk")
-        channel.setMethodCallHandler(this)
-    }
-
-    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
-        Log.i("onDetachedFromEngine =>", "")
-        channel.setMethodCallHandler(null)
-    }
-
-    override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
-        Log.i("call.method => ", call.method.toString())
-        if (call.method == "vero") {
-
-            val response = VeroPrinter().initVero(context)
-            Log.i("native response => ", response.toString())
-            if ( response ) {
-                return result.success("Android ${android.os.Build.VERSION.RELEASE}")
-            }
-
-            return result.error("UNAVAILABLE", "Printer not available.", null)
-
-        } else {
-            Log.i("notImplemented =>", "")
-            result.notImplemented()
-        }
-    }
-     */
 
 }
